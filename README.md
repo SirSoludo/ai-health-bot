@@ -1,25 +1,30 @@
-# AI Health Bot System
+# AI Health Bot
 
-A lightweight, rule-based AI Health Bot built with Python (Flask), for educational/final-year project purposes.
+A lightweight, rule-based health chatbot built with Python and Flask. You describe a symptom, the bot asks follow-up questions one at a time, then suggests possible conditions with reasoning and first-aid tips. Every message is checked for emergency keywords so urgent cases are flagged immediately. Built as an educational final-year project.
 
-## Setup
+## Run
 
-```
+```bash
 pip install -r requirements.txt
 python app.py
 ```
 
-Then open http://127.0.0.1:5000 in your browser.
+Open http://127.0.0.1:5000. The SQLite database (`health_bot.db`) is created automatically on first run.
 
-## How it works
+## Project files
 
-- `health_bot/knowledge_base.py` — symptom categories, follow-up questions, and possible conditions with reasoning and first-aid tips.
-- `health_bot/emergency.py` — keyword-based emergency detector, checked on every message.
-- `health_bot/engine.py` — conversation state machine: detects the symptom category, asks follow-up questions one at a time, then scores possible conditions based on the answers.
-- `database.py` — SQLite storage for per-session chat history.
-- `app.py` — Flask routes tying everything together.
+| Path | What it does |
+|---|---|
+| `app.py` | Flask routes: home, chat page, tips, referral, and the `/api/chat`, `/api/new-topic`, `/api/clear-history` endpoints |
+| `health_bot/engine.py` | Conversation state machine: detects the symptom category, asks follow-ups, scores possible conditions |
+| `health_bot/knowledge_base.py` | Symptom categories, follow-up questions, conditions, reasoning and first-aid tips |
+| `health_bot/emergency.py` | Keyword-based emergency detector, run on every message |
+| `database.py` | SQLite storage for per-session chat history |
+| `templates/` | Pages: `base.html` (layout), `index.html`, `chat.html`, `tips.html`, `referral.html` |
+| `static/css/style.css`, `static/js/chat.js` | Styling and the chat interface |
+| `requirements.txt` | Python dependencies (Flask) |
 
-## Important
+## Notes
 
-This system does not provide medical diagnoses and does not replace professional healthcare advice.
-It is a rule-based educational demonstration only.
+- Change `app.secret_key` in `app.py` before deploying anywhere public.
+- This system does not provide medical diagnoses and does not replace professional healthcare advice.
