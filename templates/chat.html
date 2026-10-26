@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Chat - AI Health Bot{% endblock %}
+{% block content %}
+<div class="container py-4">
+    <div class="chat-wrapper mx-auto">
+        <div class="chat-header d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="mb-0 fw-bold">AI Health Assistant</h5>
+                <small class="text-muted">General guidance only — not a diagnosis</small>
+            </div>
+            <div>
+                <button id="newTopicBtn" class="btn btn-sm btn-outline-secondary">New Concern</button>
+                <button id="clearHistoryBtn" class="btn btn-sm btn-outline-danger">Clear History</button>
+            </div>
+        </div>
+
+        <div id="chatWindow" class="chat-window">
+            {% if not history %}
+            <div class="message bot-message">
+                Hello! I'm your AI Health Assistant. I can ask a few questions to help understand
+                your concern. What's bothering you today?
+            </div>
+            {% else %}
+                {% for msg in history %}
+                    <div class="message {{ 'user-message' if msg.sender == 'user' else 'bot-message' }}">{{ msg.message }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <form id="chatForm" class="chat-input-area d-flex gap-2 mt-3">
+            <input type="text" id="messageInput" class="form-control" placeholder="Describe how you're feeling..." autocomplete="off" required>
+            <button type="submit" class="btn btn-primary px-4">Send</button>
+        </form>
+        <small class="text-muted d-block mt-2">This chat does not store personal medical records and is for educational purposes only.</small>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}

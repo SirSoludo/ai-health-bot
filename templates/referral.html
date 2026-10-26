@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Emergency & Referral - AI Health Bot{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h2 class="fw-bold mb-3">Emergency &amp; Healthcare Referral</h2>
+    <p class="text-muted mb-4">If you are in a medical emergency, contact emergency services immediately. Do not wait for an online response.</p>
+
+    <div class="alert alert-danger">
+        <strong>In a life-threatening emergency:</strong> Call your local emergency number right away
+        or go to the nearest emergency room.
+    </div>
+
+    <div class="row g-4 mt-2">
+        <div class="col-md-6">
+            <div class="referral-card">
+                <h5 class="fw-bold">📞 General Emergency</h5>
+                <p class="mb-1">Nigeria Emergency Number: <strong>112</strong></p>
+                <p class="mb-0">Ambulance / Fire / Police (alt): <strong>199</strong></p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="referral-card">
+                <h5 class="fw-bold">🧠 Mental Health Support</h5>
+                <p class="mb-0">Suicide Prevention / Emotional Support helplines are available in most regions —
+                search "mental health helpline" for your country, or speak to a trusted healthcare provider.</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="referral-card">
+                <h5 class="fw-bold">🏥 Find a Hospital</h5>
+                <p class="mb-0">Visit the nearest general hospital or teaching hospital in your area for urgent
+                in-person evaluation.</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="referral-card">
+                <h5 class="fw-bold">☎ Poison Control</h5>
+                <p class="mb-0">Contact your nearest hospital immediately if poisoning is suspected.</p>
+            </div>
+        </div>
+    </div>
+
+    <p class="text-muted mt-4 small">Contact details vary by country/region. Please confirm the correct emergency numbers for your location.</p>
+</div>
+{% endblock %}

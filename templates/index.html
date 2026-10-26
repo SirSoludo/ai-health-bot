@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Welcome - AI Health Bot{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="container text-center py-5">
+        <div class="hero-icon mb-3">✚</div>
+        <h1 class="fw-bold">AI Health Bot</h1>
+        <p class="lead text-muted">Your friendly first step for general health guidance</p>
+
+        <div class="disclaimer-card mx-auto mt-4 text-start">
+            <h5 class="fw-bold">⚠ Medical Disclaimer</h5>
+            <p>
+                AI Health Bot provides general health information and guidance only. It uses simple
+                rule-based logic and <strong>does not replace a doctor or licensed healthcare
+                professional</strong>. It cannot provide a confirmed medical diagnosis.
+            </p>
+            <p class="mb-0">
+                If you are experiencing a medical emergency, please contact your local emergency
+                services immediately or visit the nearest hospital.
+            </p>
+        </div>
+
+        <a href="{{ url_for('chat_page') }}" class="btn btn-primary btn-lg mt-4 px-5">Start Chat</a>
+
+        <div class="row mt-5 g-4 text-start">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <h6 class="fw-bold">💬 Guided Symptom Check</h6>
+                    <p class="small text-muted">Answer simple follow-up questions so the bot can understand your concern.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <h6 class="fw-bold">🩹 First-Aid Guidance</h6>
+                    <p class="small text-muted">Get basic first-aid steps for common injuries and health concerns.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <h6 class="fw-bold">🚨 Emergency Detection</h6>
+                    <p class="small text-muted">The bot flags emergency situations and points you to professional help.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
